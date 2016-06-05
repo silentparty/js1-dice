@@ -21,10 +21,10 @@ function randomiser() {
   return Math.floor(Math.random() * 6 + 1);
 }
 
-var rollDelay = randomiser() * 50;
+var rollDelay = randomiser() * 30;
+var numRolls = randomiser() * 3;
 
 document.getElementById('roll-dice').onclick = function() {
-  var numRolls = randomiser();
   (function roll (i) {
     setTimeout(function () {
       if (i <= numRolls ) { // If i > 0, keep going
