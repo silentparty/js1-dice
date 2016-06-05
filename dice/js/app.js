@@ -22,24 +22,25 @@ function randomiser() {
 }
 
 var rollDelay = randomiser() * 30;
-var numRolls = randomiser() * 3;
 
 document.getElementById('roll-dice').onclick = function() {
   (function roll (i) {
+    var numRolls = randomiser() * 3;
     setTimeout(function () {
       if (i <= numRolls ) { // If i > 0, keep going
-        var random1 = randomiser();
-        document.getElementById('first-die').className = "dice-" + random1;
+        var rollValue = randomiser();
+        document.getElementById('first-die').className = "dice-" + rollValue;
         i++;
         roll(i);       // Call the loop again, and pass it the current value of i
       }
     }, rollDelay);
   })(0);
   (function roll (i) {
+    var numRolls = randomiser() * 3;
     setTimeout(function () {
       if (i <= numRolls ) { // If i > 0, keep going
-        var random1 = randomiser();
-        document.getElementById('second-die').className = "dice-" + random1;
+        var rollValue = randomiser();
+        document.getElementById('second-die').className = "dice-" + rollValue;
         i++;
         roll(i);       // Call the loop again, and pass it the current value of i
       }
