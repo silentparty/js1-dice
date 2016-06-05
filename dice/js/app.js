@@ -35,16 +35,34 @@ function totesRandom() {
 }
 
 document.getElementById('roll-dice').onclick = function() {
-  // var rolls = []
-  random1 = totesRandom();
-  random2 = totesRandom();
-  document.getElementById('first-die').className = "dice-" + random1;
-  document.getElementById('second-die').className = "dice-" + random2;
-  console.log(random1,random2);
+  numRolls = 20;
+  (function theLoop (i) {
+    setTimeout(function () {
+      if (i <= numRolls ) { // If i > 0, keep going
+        var random1 = totesRandom();
+        document.getElementById('first-die').className = "dice-" + random1;
+        i++;
+        theLoop(i);       // Call the loop again, and pass it the current value of i
+      }
+    }, 75);
+  })(0);
+  (function theLoop (i) {
+    setTimeout(function () {
+      if (i <= numRolls ) { // If i > 0, keep going
+        var random1 = totesRandom();
+        document.getElementById('second-die').className = "dice-" + random1;
+        i++;
+        theLoop(i);       // Call the loop again, and pass it the current value of i
+      }
+    }, 75);
+  })(0);
 }
 
+
 /*
-As function declaration
+###########################
+# As function declaration #
+###########################
 
 function totesRandom() {
   return Math.floor(Math.random() * 6 + 1);
@@ -59,4 +77,17 @@ function diceRoll() {
 }
 
 document.getElementById('roll-dice').onclick = function() { diceRoll() }
+
+######################################
+# Trying to get die rolling visually #
+######################################
+
+This isn't going to work. JavaScripts
+
+document.getElementById('roll-dice').onclick = function() {
+  random1 = [1,2,3,4,5]
+  for (var i = 0; i < random1.length; i++) {
+    document.getElementById('first-die').className = "dice-" + random1;
+  }
+}
 */
