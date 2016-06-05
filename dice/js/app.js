@@ -24,6 +24,7 @@ function randomiser() {
 var rollDelay = randomiser() * 30;
 
 document.getElementById('roll-dice').onclick = function() {
+  // Dice 1
   (function roll (i) {
     var numRolls = randomiser() * 3;
     setTimeout(function () {
@@ -35,6 +36,7 @@ document.getElementById('roll-dice').onclick = function() {
       }
     }, rollDelay);
   })(0);
+  // Dice 2
   (function roll (i) {
     var numRolls = randomiser() * 3;
     setTimeout(function () {
