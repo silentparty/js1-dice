@@ -17,79 +17,32 @@ Creating a page where every time the user hits the "Roll Dice" button, the scree
 
 */
 
-// function totesRandom() {
-//   return Math.floor(Math.random() * 6 + 1);
-// }
-//
-//
-// document.getElementById('roll-dice').onclick = function() {
-//   random1 = totesRandom();
-//   random2 = totesRandom();
-//   document.getElementById('first-die').className = "dice-" + random1;
-//   document.getElementById('second-die').className = "dice-" + random2;
-//   console.log(random1,random2);
-// }
-
 function randomiser() {
   return Math.floor(Math.random() * 6 + 1);
 }
 
-var rollDelay = randomiser() * 100;
+var rollDelay = randomiser() * 50;
 
 document.getElementById('roll-dice').onclick = function() {
   numRolls = randomiser();
-  (function theLoop (i) {
+  (function roll (i) {
     setTimeout(function () {
       if (i <= numRolls ) { // If i > 0, keep going
         var random1 = randomiser();
         document.getElementById('first-die').className = "dice-" + random1;
         i++;
-        theLoop(i);       // Call the loop again, and pass it the current value of i
+        roll(i);       // Call the loop again, and pass it the current value of i
       }
     }, rollDelay);
   })(0);
-  (function theLoop (i) {
+  (function roll (i) {
     setTimeout(function () {
       if (i <= numRolls ) { // If i > 0, keep going
         var random1 = randomiser();
         document.getElementById('second-die').className = "dice-" + random1;
         i++;
-        theLoop(i);       // Call the loop again, and pass it the current value of i
+        roll(i);       // Call the loop again, and pass it the current value of i
       }
     }, rollDelay);
   })(0);
 }
-
-
-/*
-###########################
-# As function declaration #
-###########################
-
-function totesRandom() {
-  return Math.floor(Math.random() * 6 + 1);
-}
-
-function diceRoll() {
-  random1 = totesRandom();
-  random2 = totesRandom();
-  document.getElementById('first-die').className = "dice-" + random1;
-  document.getElementById('second-die').className = "dice-" + random2;
-  console.log(random1,random2);
-}
-
-document.getElementById('roll-dice').onclick = function() { diceRoll() }
-
-######################################
-# Trying to get die rolling visually #
-######################################
-
-This isn't going to work. JavaScripts
-
-document.getElementById('roll-dice').onclick = function() {
-  random1 = [1,2,3,4,5]
-  for (var i = 0; i < random1.length; i++) {
-    document.getElementById('first-die').className = "dice-" + random1;
-  }
-}
-*/
