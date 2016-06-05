@@ -30,26 +30,28 @@ Creating a page where every time the user hits the "Roll Dice" button, the scree
 //   console.log(random1,random2);
 // }
 
-function totesRandom() {
+function randomiser() {
   return Math.floor(Math.random() * 6 + 1);
 }
 
+var rollDelay = randomiser() * 100;
+
 document.getElementById('roll-dice').onclick = function() {
-  numRolls = 20;
+  numRolls = randomiser();
   (function theLoop (i) {
     setTimeout(function () {
       if (i <= numRolls ) { // If i > 0, keep going
-        var random1 = totesRandom();
+        var random1 = randomiser();
         document.getElementById('first-die').className = "dice-" + random1;
         i++;
         theLoop(i);       // Call the loop again, and pass it the current value of i
       }
-    }, 75);
+    }, rollDelay);
   })(0);
   (function theLoop (i) {
     setTimeout(function () {
       if (i <= numRolls ) { // If i > 0, keep going
-        var random1 = totesRandom();
+        var random1 = randomiser();
         document.getElementById('second-die').className = "dice-" + random1;
         i++;
         theLoop(i);       // Call the loop again, and pass it the current value of i
