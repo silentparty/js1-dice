@@ -56,7 +56,7 @@ document.getElementById('roll-dice').onclick = function() {
         i++;
         theLoop(i);       // Call the loop again, and pass it the current value of i
       }
-    }, 75);
+    }, rollDelay);
   })(0);
 }
 
