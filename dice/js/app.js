@@ -24,7 +24,7 @@ function randomiser() {
 var rollDelay = randomiser() * 50;
 
 document.getElementById('roll-dice').onclick = function() {
-  numRolls = randomiser();
+  var numRolls = randomiser();
   (function roll (i) {
     setTimeout(function () {
       if (i <= numRolls ) { // If i > 0, keep going
